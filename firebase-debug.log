@@ -1,0 +1,257 @@
+[debug] [2025-07-27T05:45:26.705Z] ----------------------------------------------------------------------
+[debug] [2025-07-27T05:45:26.709Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\yashp\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2025-07-27T05:45:26.710Z] CLI Version:   14.11.1
+[debug] [2025-07-27T05:45:26.710Z] Platform:      win32
+[debug] [2025-07-27T05:45:26.710Z] Node Version:  v22.17.1
+[debug] [2025-07-27T05:45:26.711Z] Time:          Sun Jul 27 2025 11:15:26 GMT+0530 (India Standard Time)
+[debug] [2025-07-27T05:45:26.711Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-27T05:45:27.076Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-27T05:45:27.076Z] > authorizing via signed-in user (yashpatil121199@gmail.com)
+[debug] [2025-07-27T05:45:27.187Z] openjdk version "17.0.16" 2025-07-15
+
+[debug] [2025-07-27T05:45:27.188Z] OpenJDK Runtime Environment Temurin-17.0.16+8 (build 17.0.16+8)
+OpenJDK 64-Bit Server VM Temurin-17.0.16+8 (build 17.0.16+8, mixed mode, sharing)
+
+[debug] [2025-07-27T05:45:27.216Z] Parsed Java major version: 17
+[info] i  emulators: Starting emulators: auth, functions, firestore, eventarc, tasks, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, eventarc, tasks, extensions"}}
+[debug] [2025-07-27T05:45:27.220Z] Checked if tokens are valid: false, expires at: 1753595155210
+[debug] [2025-07-27T05:45:27.221Z] Checked if tokens are valid: false, expires at: 1753595155210
+[debug] [2025-07-27T05:45:27.221Z] > refreshing access token with scopes: []
+[debug] [2025-07-27T05:45:27.226Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-07-27T05:45:27.226Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-07-27T05:45:27.617Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-07-27T05:45:27.617Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-07-27T05:45:27.792Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/ai-error-tracker [none]
+[debug] [2025-07-27T05:45:29.449Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/ai-error-tracker 200
+[debug] [2025-07-27T05:45:29.450Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/ai-error-tracker {"projectNumber":"1044361872393","projectId":"ai-error-tracker","lifecycleState":"ACTIVE","name":"ai-error-tracker","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-07-24T05:04:14.649080Z"}
+[debug] [2025-07-27T05:45:29.493Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-27T05:45:29.493Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-27T05:45:29.494Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-27T05:45:29.494Z] assigned listening specs for emulators {"user":{"ui":[{"address":"127.0.0.1","family":"IPv4","port":4001}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4501}],"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2025-07-27T05:45:29.503Z] [hub] writing locator at C:\Users\yashp\AppData\Local\Temp\hub-ai-error-tracker.json
+[debug] [2025-07-27T05:45:29.516Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2025-07-27T05:45:29.521Z] late-assigned ports for functions and eventarc emulators {"user":{"ui":[{"address":"127.0.0.1","family":"IPv4","port":4001}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4501}],"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5002}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9300}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9500}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2025-07-27T05:45:29.834Z] defaultcredentials: writing to file C:\Users\yashp\AppData\Roaming\firebase\yashpatil121199_gmail_com_application_default_credentials.json
+[debug] [2025-07-27T05:45:29.846Z] Setting GAC to C:\Users\yashp\AppData\Roaming\firebase\yashpatil121199_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\yashp\\AppData\\Roaming\\firebase\\yashpatil121199_gmail_com_application_default_credentials.json"}}
+[debug] [2025-07-27T05:45:29.849Z] Checked if tokens are valid: true, expires at: 1753598726618
+[debug] [2025-07-27T05:45:29.849Z] Checked if tokens are valid: true, expires at: 1753598726618
+[debug] [2025-07-27T05:45:29.850Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ai-error-tracker/adminSdkConfig [none]
+[debug] [2025-07-27T05:45:30.505Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ai-error-tracker/adminSdkConfig 200
+[debug] [2025-07-27T05:45:30.506Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ai-error-tracker/adminSdkConfig {"projectId":"ai-error-tracker","storageBucket":"ai-error-tracker.firebasestorage.app"}
+[warn] !  firestore: Cloud Firestore Emulator does not support multiple databases yet. {"metadata":{"emulator":{"name":"firestore"},"message":"Cloud Firestore Emulator does not support multiple databases yet."}}
+[warn] !  firestore: Did not find a Cloud Firestore rules file specified in a firebase.json config file. {"metadata":{"emulator":{"name":"firestore"},"message":"Did not find a Cloud Firestore rules file specified in a firebase.json config file."}}
+[warn] !  firestore: The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"firestore"},"message":"The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
+[info] i  firestore: downloading cloud-firestore-emulator-v1.19.8.jar... {"metadata":{"emulator":{"name":"firestore"},"message":"downloading cloud-firestore-emulator-v1.19.8.jar..."}}
+[debug] [2025-07-27T05:45:30.659Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.19.8.jar 
+[debug] [2025-07-27T05:45:31.365Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.19.8.jar 200
+[debug] [2025-07-27T05:45:31.365Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.19.8.jar [stream]
+[debug] [2025-07-27T05:45:43.298Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-07-27T05:45:43.298Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2025-07-27T05:45:43.298Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\yashp\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.19.8.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","ai-error-tracker","--single_project_mode",true,"--functions_emulator","127.0.0.1:5002"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false,"port":8080} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\yashp\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.19.8.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"ai-error-tracker\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5002\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false,\"port\":8080}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2025-07-27T05:45:47.490Z] Jul 27, 2025 11:15:47 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://127.0.0.1:9150
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 27, 2025 11:15:47 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\r\nINFO: Started WebSocket server on ws://127.0.0.1:9150\r\n"}}
+[debug] [2025-07-27T05:45:47.569Z] API endpoint: http:// {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://"}}
+[debug] [2025-07-27T05:45:47.569Z] 127.0.0.1:8080
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8080
+
+If you are running a Firestore in Datastore Mode project, run:
+
+   export DATASTORE_EMULATOR_HOST=127.0.0.1:8080
+
+Note: Support for Datastore Mode is in preview. If you encounter any bugs please file at https://github.com/firebase/firebase-tools/issues.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"127.0.0.1:8080\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\r\n\n   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8080\n\nIf you are running a Firestore in Datastore Mode project, run:\r\n\n   export DATASTORE_EMULATOR_HOST=127.0.0.1:8080\n\nNote: Support for Datastore Mode is in preview. If you encounter any bugs please file at https://github.com/firebase/firebase-tools/issues.\r\n"}}
+[debug] [2025-07-27T05:45:47.579Z] Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Dev App Server is now running.\n\r\n"}}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2025-07-27T05:45:58.343Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[info] i  functions: Watching "C:\Users\yashp\Desktop\ai_errors\errors-track\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\yashp\\Desktop\\ai_errors\\errors-track\\functions\" for Cloud Functions..."}}
+[debug] [2025-07-27T05:45:58.359Z] Validating nodejs source
+[debug] [2025-07-27T05:46:01.649Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "nodemailer": "^7.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-07-27T05:46:01.649Z] Building nodejs source
+[debug] [2025-07-27T05:46:01.650Z] Failed to find version of module node: reached end of search path C:\Users\yashp\Desktop\ai_errors\errors-track\functions\node_modules
+[info] +  functions: Using node@22 from host. 
+[debug] [2025-07-27T05:46:01.657Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-27T05:46:01.684Z] Found firebase-functions binary at 'C:\Users\yashp\Desktop\ai_errors\errors-track\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8339
+
+[info] [dotenv@17.2.1] injecting env (0) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+
+[error] TypeError: Cannot read properties of undefined (reading 'user')
+    at Object.<anonymous> (C:\Users\yashp\Desktop\ai_errors\errors-track\functions\index.js:18:39)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at loadModule (C:\Users\yashp\Desktop\ai_errors\errors-track\functions\node_modules\firebase-functions\lib\runtime\loader.js:40:16)
+
+[debug] [2025-07-27T05:46:04.148Z] Got response code 400; body Failed to generate manifest from function source: Cannot read properties of undefined (reading 'user')
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2025-07-27T05:46:08.207Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4001/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬──────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI              │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4001/auth       │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Functions      │ 127.0.0.1:5002 │ http://127.0.0.1:4001/functions  │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4001/firestore  │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Eventarc       │ 127.0.0.1:9300 │ n/a                              │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Cloud Tasks    │ 127.0.0.1:9500 │ n/a                              │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Extensions     │ 127.0.0.1:5002 │ http://127.0.0.1:4001/extensions │
+└────────────────┴────────────────┴──────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4501, 9150
+┌─────────────────────────┬───────────────┬─────────────────────┐
+│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
+└─────────────────────────┴───────────────┴─────────────────────┘
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2025-07-27T05:51:08.273Z] File C:\Users\yashp\Desktop\ai_errors\errors-track\functions\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\yashp\\Desktop\\ai_errors\\errors-track\\functions\\index.js changed, reloading triggers"}}
+[debug] [2025-07-27T05:51:09.287Z] Validating nodejs source
+[debug] [2025-07-27T05:51:13.610Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "nodemailer": "^7.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-07-27T05:51:13.611Z] Building nodejs source
+[debug] [2025-07-27T05:51:13.611Z] Failed to find version of module node: reached end of search path C:\Users\yashp\Desktop\ai_errors\errors-track\functions\node_modules
+[info] +  functions: Using node@22 from host. 
+[debug] [2025-07-27T05:51:13.614Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-27T05:51:13.633Z] Found firebase-functions binary at 'C:\Users\yashp\Desktop\ai_errors\errors-track\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8967
+
+[error] ReferenceError: functions is not defined
+    at Object.<anonymous> (C:\Users\yashp\Desktop\ai_errors\errors-track\functions\index.js:17:15)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at loadModule (C:\Users\yashp\Desktop\ai_errors\errors-track\functions\node_modules\firebase-functions\lib\runtime\loader.js:40:16)
+
+[debug] [2025-07-27T05:51:14.978Z] Got response code 400; body Failed to generate manifest from function source: functions is not defined
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2025-07-27T05:54:01.027Z] File C:\Users\yashp\Desktop\ai_errors\errors-track\functions\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\yashp\\Desktop\\ai_errors\\errors-track\\functions\\index.js changed, reloading triggers"}}
+[debug] [2025-07-27T05:54:02.036Z] Validating nodejs source
+[debug] [2025-07-27T05:54:05.203Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "nodemailer": "^7.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-07-27T05:54:05.203Z] Building nodejs source
+[debug] [2025-07-27T05:54:05.204Z] Failed to find version of module node: reached end of search path C:\Users\yashp\Desktop\ai_errors\errors-track\functions\node_modules
+[info] +  functions: Using node@22 from host. 
+[debug] [2025-07-27T05:54:05.207Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-27T05:54:05.224Z] Found firebase-functions binary at 'C:\Users\yashp\Desktop\ai_errors\errors-track\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8992
+
+[error] TypeError: Cannot read properties of undefined (reading 'user')
+    at Object.<anonymous> (C:\Users\yashp\Desktop\ai_errors\errors-track\functions\index.js:18:39)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at loadModule (C:\Users\yashp\Desktop\ai_errors\errors-track\functions\node_modules\firebase-functions\lib\runtime\loader.js:40:16)
+
+[debug] [2025-07-27T05:54:08.517Z] Got response code 400; body Failed to generate manifest from function source: Cannot read properties of undefined (reading 'user')
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}

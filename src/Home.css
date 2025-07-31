@@ -1,0 +1,157 @@
+:root {
+  --primary: #007b7b;
+  --bg-light: #f4fdfb;
+  --accent: #009688;
+  --error: #c62828;
+  --text-dark: #1b1b1b;
+  --card-bg: #fff;
+  --font-main: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: var(--bg-light);
+  font-family: var(--font-main);
+}
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4fdfb;
+}
+
+
+.sidebar {
+  width: 80px;
+  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 2rem;
+}
+
+.sidebar i {
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 3rem;
+}
+
+.page-header {
+  /* text-align: left; */
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.page-header h2 {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+   text-align: center;
+}
+
+.page-header p {
+  color: #555;
+   text-align: center;
+}
+
+.report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-block {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.form-block h3 {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.half-width {
+  flex: 1;
+  min-width: 240px;
+}
+
+
+input, select, textarea {
+  padding: 0.85rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+}
+
+
+textarea {
+  resize: vertical;
+  font-family: var(--font-main);
+}
+
+.error-label {
+  color: var(--error);
+  font-size: 0.9rem;
+  margin: -0.5rem 0 0.5rem;
+}
+
+.submit-button-container {
+  text-align: center;
+}
+
+.submit-report-btn {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-report-btn:hover {
+  background-color: #007b7b;
+}
+
+ul {
+  padding-left: 1.5rem;
+  color: #444;
+}
+
+.shake {
+  animation: shake 0.3s;
+  border: 1px solid var(--error);
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}

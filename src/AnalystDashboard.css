@@ -1,0 +1,232 @@
+/* 🌐 Dashboard Container */
+.dashboard-container {
+  padding: 120px 2rem 4rem;
+  max-width: 1080px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fb;
+  color: #2c3e50;
+}
+
+/* 🧠 Header Section */
+.dashboard-header h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #34495e;
+}
+
+.dashboard-header p {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  color: #7f8c8d;
+}
+
+/* 🔍 Actions Row */
+.dashboard-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-actions input {
+  padding: 0.65rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+  width: 280px;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.dashboard-actions input:focus {
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+  outline: none;
+}
+
+.dashboard-actions button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.2rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-actions button:hover {
+  background-color: #0056b3;
+}
+
+/* 📊 Stats Box */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  margin-bottom: 3rem;
+  text-align: center;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* 🧍 Analyst Cards */
+.analyst-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.5rem;
+}
+
+.analyst-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 1.2rem;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.analyst-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.analyst-header {
+  padding: 1rem 1.4rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f4f8;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* 📖 Dropdown Details */
+.analyst-details {
+  padding: 1rem 1.4rem;
+  background-color: #fff;
+}
+
+/* 🧭 Grid Layout */
+.analyst-details-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.breakdown-column {
+  flex: 1;
+  min-width: 240px;
+  background-color: #fafafa;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.breakdown-column h4 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.breakdown-column ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.breakdown-column li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #ddd;
+}
+
+/* 🕘 Recent Reports */
+.recent-reports-panel {
+  background-color: #fafafa;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.recent-reports-panel h4 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.recent-reports-panel ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.recent-reports-panel li {
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #ddd;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 📤 Export Buttons */
+.export-btn, .export-btns {
+  background-color: #28a745;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.export-btn:hover, .export-btns:hover {
+  background-color: #218838;
+}
+
+/* 🔄 Scroll Styling */
+.scroll-section {
+  max-height: 180px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.scroll-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-section::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+.status-alert {
+  text-align: center;
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.export-btns {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+  

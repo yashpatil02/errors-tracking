@@ -1,0 +1,283 @@
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #e6f0f8;
+  margin-top: 2rem;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background-color: #1f2d3d;
+  color: #fff;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+  background-color: #00b894;
+  color: white;
+}
+
+/* Admin Panel Main Area */
+.admin-panel {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f5f7fa;
+  font-family: 'Poppins', sans-serif;
+}
+
+h2, h3 {
+  margin-bottom: 1rem;
+  color: #2d3436;
+}
+
+.report-card {
+  background: #fff;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+.delete-match-btn {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.error-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.error-item {
+  background-color: #f3f4f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.error-text {
+  flex-grow: 1;
+  font-family: monospace;
+  margin-right: 12px;
+}
+
+.error-input {
+  flex-grow: 1;
+  font-size: 14px;
+  padding: 5px 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.error-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+  transition: transform 0.2s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.2);
+}
+
+.icon-btn.edit {
+  color: #f0ad4e;
+}
+
+.icon-btn.delete {
+  color: #d9534f;
+}
+
+.icon-btn.save {
+  color: #5cb85c;
+}
+/* Card Styles */
+
+.access-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Error Row */
+/* .error-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #dfe6e9;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+} */
+
+/* Error buttons */
+.action-buttons button {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* .edit-btn {
+  background-color: #fdcb6e;
+  color: black;
+}
+
+.delete-btn {
+  background-color: #d63031;
+  color: white;
+}
+
+.save-btn {
+  background-color: #0984e3;
+  color: white;
+} */
+
+.approve-btn {
+  background-color: #00b894;
+  color: white;
+}
+
+.reject-btn {
+  background-color: #d63031;
+  color: white;
+}
+
+
+.report-body {
+  display: flex;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.match-filter-panel {
+  width: 250px;
+  border-right: 1px solid #ccc;
+  padding-right: 15px;
+}
+
+.match-filter-panel input[type="text"],
+.match-filter-panel input[type="date"] {
+  width: 90%;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.match-list {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.match-list-item {
+  background: #f7f7f7;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.match-list-item:hover,
+.match-list-item.selected {
+  background-color: #d2f4f8;
+}
+
+.match-error-panel {
+  flex: 1;
+}
+
+.access-section {
+  margin-top: 20px;
+}
+
+.access-card {
+  background: #f9f9f9;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.approve-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reject-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
