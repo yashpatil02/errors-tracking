@@ -140,3 +140,29 @@ body {
 .icon-only-btn:hover {
   transform: scale(1.2) rotate(8deg);
 }
+
+@media (max-width: 480px) {
+  .register-card {
+    padding: 1.2rem;
+    width: 90%;
+  }
+
+  .input-group input,
+  .input-group select {
+    width: 100%;
+  }
+
+  .toggle-pass {
+    right: 10px;
+  }
+
+  .register-btn,
+  .google-btn {
+    font-size: 0.95rem;
+    padding: 0.85rem;
+  }
+
+  .redirect-note {
+    font-size: 0.8rem;
+  }
+}
