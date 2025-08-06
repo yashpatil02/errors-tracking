@@ -10,6 +10,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from './firebaseConfig';
 import AnalystFullErrorPage from './AnalystFullErrorPage';
 import Navbar from './navbar';
+import HeatmapPage from './HeatmapSection';
 
 
 
@@ -77,6 +78,8 @@ const App = () => {
             }
           />
              <Route path="/analyst/:analystName/errors" element={<AnalystFullErrorPage userMeta={userMeta} />} />
+             <Route path="/error-heatmap" element={<HeatmapPage userMeta={userMeta} />} />
+
 
         </Routes>
       )}

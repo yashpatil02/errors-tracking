@@ -1,0 +1,253 @@
+/* 🔲 Heatmap box style */
+.heatmap-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.heatmap-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.heatmap-table th,
+.heatmap-table td {
+  padding: 8px;
+  text-align: center;
+}
+
+.heatmap-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+}
+
+.heatmap-table td .box {
+  width: 35px;
+  height: 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #fff;
+  margin: auto;
+}
+
+.box.green {
+  background-color: #81c784; /* 0 errors */
+}
+
+.box.yellow {
+  background-color: #fff176;
+  color: #333;
+}
+
+.box.orange {
+  background-color: #ff9800;
+}
+
+.box.red {
+  background-color: #e53935;
+}
+
+.form-block {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.scroll-section {
+  overflow-x: auto;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #fdfdfd;
+}
+
+.dashboard-header h1 {
+  color: #007b7b;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.dashboard-header p {
+  text-align: center;
+  color: #666;
+  font-size: 1rem;
+}
+
+.small-label {
+  background-color: #eee;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  margin-left: 10px;
+  vertical-align: middle;
+  color: #333;
+}
+
+.small-label.green {
+  background-color: #d0f0dc;
+  color: #2e7d32;
+  font-weight: 600;
+}
+.heatmap-controls {
+  background: #fff8f2;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.heatmap-controls select,
+.heatmap-controls input[type="date"] {
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.heatmap-controls button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-orange {
+  background-color: #ff7f50;
+  color: white;
+}
+
+.btn-green {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-blue {
+  background-color: #007bff;
+  color: white;
+}
+
+/* 🔵 Color Classes */
+.box {
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  line-height: 28px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.box:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.green { background-color: #c8f7c5; }
+.yellow { background-color: #fdf89e; }
+.orange { background-color: #f7b267; }
+.red { background-color: #e63946; color: white; }
+.critical { background-color: #b30000; color: white; }
+
+/* 🔍 Legend Styling */
+.error-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 1rem 0;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.legend-box {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.legend-box.green { background-color: #c8f7c5; }
+.legend-box.yellow { background-color: #fdf89e; }
+.legend-box.orange { background-color: #f7b267; }
+.legend-box.red { background-color: #e63946; color: white; }
+.legend-box.critical { background-color: #b30000; color: white; }
+
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  .dashboard-header h1 {
+    font-size: 20px;
+  }
+
+  .dashboard-header p {
+    font-size: 14px;
+  }
+
+  .heatmap-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .heatmap-controls h4 {
+    font-size: 16px;
+  }
+
+  .heatmap-controls select,
+  .heatmap-controls input,
+  .heatmap-controls button {
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .error-legend {
+    flex-wrap: wrap;
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .legend-box {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+
+  .heatmap-table th,
+  .heatmap-table td {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  .box {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+  }
+
+  .scroll-section {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    padding-bottom: 6px;
+  }
+}

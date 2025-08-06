@@ -3,159 +3,119 @@
   top: 0;
   width: 100%;
   height: 70px;
-  background-color: #1e1e2f;
-  color: #fff;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  background-color: #1c1c2e; /* Dark base */
+  color: #f0f0f0;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
   z-index: 1000;
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Brand / Logo */
+
+/* Brand Section */
 .qc-brand {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 1.2rem;
-  font-weight: bold;
 }
 
 .qc-icon {
-  background-color: #ffffff;
-  color: #1e1e2f;
+  background-color: white;
+  color: #4e54c8;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
 }
 
-/* Center Links */
-.qc-actions {
+.qc-title h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.qc-title span {
+  font-size: 0.85rem;
+  color: #e0e0e0;
+}
+
+/* Navigation Buttons */
+.qc-links {
   display: flex;
-  justify-content: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
 .qc-links button {
   background: none;
   border: none;
-  color: #ffffff;
+  color: white;
   font-size: 1rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   transition: color 0.2s ease;
 }
 
 .qc-links button:hover {
-  color: #00b4ff;
+  color: #00ffcc;
 }
 
-/* Profile Section Right */
-.qc-profile-container {
+/* Status + Profile */
+.qc-status-profile {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  position: relative;
-    padding-right: 4rem; /* Pulls profile button inward */
+  gap: 1.5rem;
+}
 
+.status-indicator {
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
 }
 
 .qc-profile-toggle {
-  background-color: #ffffff;
-  color: #1e1e2f;
+  background-color: white;
+  color: #4e54c8;
   border: none;
+  margin-right: 4rem;
   border-radius: 20px;
   padding: 6px 14px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
 }
 
 .qc-profile-toggle:hover {
   background-color: #eaeaea;
 }
 
+
 /* Profile Dropdown */
-.qc-profile-popup {
-  position: absolute;
-  top: 48px;
-  right: 0;
-  background-color: #2c2c3e;
-  color: white;
-  border: 1px solid #444;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-  width: 212px;
-  padding: 15px;
-  z-index: 1001;
-  animation: fadeIn 0.2s ease-in-out;
-    right: 3rem; /* Instead of 0 */
-
-}
-
-.qc-profile-popup h4 {
-  font-size: 16px;
-  margin-top: 0;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #444;
-  padding-bottom: 6px;
-}
-
-.qc-profile-popup p {
-  margin: 6px 0;
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.logout-btn {
-  background-color: #d9534f;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 12px;
-  width: 100%;
-  font-weight: bold;
-  transition: background 0.2s ease;
-}
-
-.logout-btn:hover {
-  background-color: #b92b37;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Side Panel Styles */
 .profile-side-panel {
   position: fixed;
   top: 0;
-  right: -367px; /* Hidden by default */
+  right: -100%;
   width: 320px;
-  height: 100%;
-  background-color: #1e1e2f;
-  color: #fff;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+  height: 100vh;
+  background:#0c8282;
+  color: white;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: right 0.3s ease;
+  transition: right 0.4s ease;
   z-index: 1500;
   padding: 20px;
+  overflow-y: auto;
 }
 
 .profile-side-panel.open {
@@ -166,17 +126,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #af3a3a;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 10px;
 }
-.panel-header h2{
+
+.panel-header h2 {
+  font-size: 1.2rem;
   color: white;
+  margin: 0;
 }
 
 .close-panel {
   background: none;
   border: none;
-  color: #fff;
+  color: white;
   font-size: 20px;
   cursor: pointer;
 }
@@ -192,56 +156,28 @@
 }
 
 .panel-footer {
-  border-top: 1px solid #444;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   padding-top: 15px;
 }
 
 .logout-btn {
-  background-color: #d9534f;
+  background-color: #ff4d4d;
   color: white;
   border: none;
-  padding: 8px 12px;
-  margin-bottom: 2.5rem;
-  border-radius: 6px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 3rem;
   cursor: pointer;
   width: 100%;
   font-weight: bold;
+  transition: background 0.2s ease;
 }
 
 .logout-btn:hover {
-  background-color: #b92b37;
+  background-color: #e60000;
 }
-
-
-/* Mobile Responsive */
 @media (max-width: 768px) {
-  .qc-navbar {
-    grid-template-columns: 1fr auto;
-    height: auto;
-    padding: 1rem;
-    grid-template-rows: auto auto;
-    row-gap: 0.5rem;
-  }
-
-  .qc-actions {
-    grid-column: span 2;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .qc-links button {
-    font-size: 0.95rem;
-  }
-
-  .qc-profile-toggle {
-    padding: 5px 12px;
-    font-size: 0.9rem;
-  }
-
-  .qc-profile-popup {
-    right: 0;
-    width: 95vw;
-    max-width: 300px;
+  .profile-side-panel {
+    width: 100vw;
   }
 }

@@ -6,6 +6,7 @@ import { db } from './firebaseConfig';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import { useNavigate } from 'react-router-dom'; // Add at the top
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 
@@ -16,6 +17,8 @@ const AnalystDashboard = ({ userMeta }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusMessage, setStatusMessage] = useState('');
   const navigate = useNavigate(); // Inside component
+  const [selectedAnalyst, setSelectedAnalyst] = useState('All');
+
 
 
   const handleRefresh = () => {
@@ -140,17 +143,22 @@ const AnalystDashboard = ({ userMeta }) => {
           <p>Real-time performance tracking with Excel exports and error breakdowns.</p>
         </div>
 
-        <div className="dashboard-actions">
-          <input
-            type="text"
-            placeholder="Search analyst..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+<div className="dashboard-actions">
+  <input
+    type="text"
+    placeholder="Search analyst..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+  />
+  <button onClick={exportToExcel}>
+    <i className="fas fa-download"></i> Download Excel
+  </button>
+  <button onClick={handleRefresh}>
+    <i className="fas fa-sync-alt"></i> Refresh
+  </button>
+</div>
 
-          <button onClick={exportToExcel}>Download Excel</button>
-          <button onClick={handleRefresh}>Refresh</button>
-        </div>
+
 
         {statusMessage && (
           <div className="status-alert">
@@ -158,12 +166,49 @@ const AnalystDashboard = ({ userMeta }) => {
           </div>
         )}
 
-        <div className="dashboard-stats">
-          <div>Total Analysts: <strong>{totalAnalysts}</strong></div>
-          <div>Total Reports: <strong>{totalReports}</strong></div>
-          <div>Total Errors: <strong>{totalErrors}</strong></div>
-          <div>Avg Errors/Report: <strong>{(totalReports ? (totalErrors / totalReports).toFixed(1) : 0)}</strong></div>
-        </div>
+   <div className="dashboard-cards">
+  <div className="card blue">
+    <div className="card-content">
+      <div className="card-text">
+        <span className="label">Total Analysts</span>
+        <span className="value">{totalAnalysts}</span>
+      </div>
+      <i className="fas fa-users icon"></i>
+    </div>
+  </div>
+
+  <div className="card green">
+    <div className="card-content">
+      <div className="card-text">
+        <span className="label">Total Reports</span>
+        <span className="value">{totalReports}</span>
+      </div>
+      <i className="fas fa-file-alt icon"></i>
+    </div>
+  </div>
+
+  <div className="card red">
+    <div className="card-content">
+      <div className="card-text">
+        <span className="label">Total Errors</span>
+        <span className="value">{totalErrors}</span>
+      </div>
+      <i className="fas fa-exclamation-triangle icon"></i>
+    </div>
+  </div>
+
+  <div className="card purple">
+    <div className="card-content">
+      <div className="card-text">
+        <span className="label">Avg Errors/Report</span>
+        <span className="value">{totalReports ? (totalErrors / totalReports).toFixed(1) : 0}</span>
+      </div>
+      <i className="fas fa-chart-line icon"></i>
+    </div>
+  </div>
+</div>
+
+
 
         <div className="analyst-section">
           <h2>🧑 Analysts Overview</h2>
@@ -208,38 +253,6 @@ const AnalystDashboard = ({ userMeta }) => {
                 });
               });
 
-
-              // analystReports.forEach(r => {
-              //   r.errors?.forEach(err => {
-              //     let key = err.type.toLowerCase();
-
-              //     if (key.includes('goal')) {
-              //       key = 'Goal';
-              //     } else if (key.includes('substitution')) {
-              //       key = 'Substitution';
-              //     } else if (key.includes('Shot')) {
-              //       key = 'Shot';
-              //     }
-              //     else if (key.includes('Foul')) {
-              //       key = 'Foul';
-              //     }
-              //     else if (key.includes('Free kick')) {
-              //       key = 'Free kick';
-              //     }
-              //     else if (key.includes('penalty kick')) {
-              //       key = 'penalty kick';
-              //     }
-              //     else if (key.includes('Throw In')) {
-              //       key = 'Throw In';
-              //     }
-              //     else if (key.includes('start Phase')) {
-              //       key = 'start Phase';
-              //     }
-
-
-              //     errorTypes[key] = (errorTypes[key] || 0) + 1;
-              //   });
-              // });
               const exportAnalystToExcel = () => {
                 const formatted = analystReports.map(r => ({
                   Match: r.matchName,
@@ -261,10 +274,28 @@ const AnalystDashboard = ({ userMeta }) => {
               return (
                 <li key={i} className="analyst-card">
                   <div className="analyst-header" onClick={() => toggleDropdown(name)}>
-                    <strong>{name}</strong> — {analystReports.length} reports, {errorCount} errors
-                    <span>{expandedAnalyst === name ? "▲" : "▼"}</span>
-
+                    <div className="analyst-header-left">
+                      <strong className="analyst-name">{name}</strong>
+                      <div className="analyst-meta">
+                        <span>{analystReports.length} report(s)</span>
+                        <span>{errorCount} error(s)</span>
+                      </div>
+                    </div>
+                    <div className="analyst-header-right">
+                      <div className="analyst-stats">
+                        <span className="stat-label">Avg</span>
+                        <span className="stat-value">{(analystReports.length ? (errorCount / analystReports.length).toFixed(1) : 0)}</span>
+                      </div>
+                      <div className="analyst-stats">
+                        <span className="stat-label">Total Errors</span>
+                        <span className="stat-value">{errorCount}</span>
+                      </div>
+                      <span className="dropdown-icon">
+                        <i className={`fas ${expandedAnalyst === name ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
+                      </span>
+                    </div>
                   </div>
+
 
                   {expandedAnalyst === name && (
                     <div className="analyst-details">

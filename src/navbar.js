@@ -30,29 +30,29 @@ const Navbar = ({ userMeta }) => {
 
         <div className="qc-actions">
           <div className="qc-links">
-            <button onClick={() => navigate('/home')}>🏠 Dashboard</button>
-            <button onClick={() => navigate('/analysts')}>👥 Analysts</button>
+            <button onClick={() => navigate('/home')}><i className="fas fa-home"></i> Dashboard</button>
+            <button onClick={() => navigate('/analysts')}><i className="fas fa-chart-line"></i> Analysts</button>
+            
+            {/* 🔥 NEW Heatmap Button */}
+            <button onClick={() => navigate('/error-heatmap')}><i className="fas fa-th"></i> Heatmap</button>
+            
             {userMeta.role === 'admin' && (
-              <button onClick={() => navigate('/admin')}>🛡️ Admin Panel</button>
+              <button onClick={() => navigate('/admin')}><i className="fas fa-shield-alt"></i> Admin Panel</button>
             )}
           </div>
         </div>
 
-        {/* Profile Button */}
         <div className="qc-profile-container">
-          <button
-            className="qc-profile-toggle"
-            onClick={() => setShowProfilePanel(true)}
-          >
-            👤 {userMeta?.name?.split(' ')[0] || "Profile"}
+          <button className="qc-profile-toggle" onClick={() => setShowProfilePanel(true)}>
+            <i className="fas fa-user-circle"></i> {userMeta?.name?.split(' ')[0] || "Profile"}
           </button>
         </div>
       </nav>
 
-      {/* Right Side Panel */}
+      {/* Right Side Profile Panel */}
       <div className={`profile-side-panel ${showProfilePanel ? 'open' : ''}`} ref={panelRef}>
         <div className="panel-header">
-          <h2>👤 My Profile</h2>
+          <h2><i className="fas fa-user-circle"></i> My Profile</h2>
           <button className="close-panel" onClick={() => setShowProfilePanel(false)}>✖</button>
         </div>
         <div className="panel-content">
