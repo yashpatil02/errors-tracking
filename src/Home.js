@@ -145,6 +145,7 @@ const Home = ({ submittedReports, setSubmittedReports, userMeta }) => {
         );
 
         const newReport = {
+         qcAnalystName: formData.qcAnalystName,
           analystName: analyst,
           qcDate: formData.qcDate,
           matchName: formData.matchName,

@@ -1,0 +1,88 @@
+/* ReviewedErrorReports.css */
+
+.reviewed-reports-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  margin: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.header-row h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.header-row input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 250px;
+}
+
+.reviewed-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.reviewed-table th {
+  text-align: left;
+  padding: 12px;
+  background: #f4f6f8;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 2px solid #ddd;
+}
+
+.reviewed-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+.reviewed-table tr:hover {
+  background: #fafafa;
+}
+
+.review-btn {
+  background: #007bff;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.review-btn:hover {
+  background: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .header-row input {
+    width: 100%;
+  }
+
+  .reviewed-table th, .reviewed-table td {
+    font-size: 13px;
+  }
+}

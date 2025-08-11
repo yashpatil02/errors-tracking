@@ -170,6 +170,7 @@ const AnalystFullErrorPage = ({ userMeta }) => {
                             >
                                 <h3>{report.matchName} ({report.gameName})</h3>
                                 <p>QC Date: {report.qcDate}</p>
+                                <p>👤 QC Analyst: {report.qcAnalystName || 'Not Assigned'}</p>
                                 <ul>
                                     {report.errors?.length > 0 ? (
                                         report.errors.map((err, i) => (
