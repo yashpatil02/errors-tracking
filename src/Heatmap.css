@@ -253,4 +253,143 @@
 }
 
 
+.progressbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.analyst-dropdown {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.analyst-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.analyst-progress-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.progress-row {
+  margin-bottom: 0.6rem;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.progress-bar {
+  background: #f0f0f0;
+  height: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.show-more-btn {
+  background: #63d9d1;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.show-more-btn:hover {
+  background: #0056b3;
+}
+
+/* ===== Mobile Responsive Enhancements ===== */
+@media (max-width: 768px) {
+  /* Generic */
+  body {
+    font-size: 14px;
+  }
+  h1, h2, h3, h4 {
+    font-size: 90%;
+  }
+  button, input, select, textarea {
+    font-size: 14px !important;
+  }
+
+  /* Sidebar collapse */
+  .sidebar {
+    position: fixed;
+    width: 180px;
+    left: -180px;
+    top: 0;
+    height: 100%;
+    z-index: 2000;
+    transition: left 0.3s ease;
+  }
+  .sidebar.open {
+    left: 0;
+  }
+
+  /* Flex/Grids stack */
+  .dashboard-layout, .report-body, .users-header, .header-row, 
+  .filters, .dashboard-actions, .analyst-details-grid, .analyst-header-right {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .dashboard-cards, .dashboard-stats {
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+  }
+
+  /* Full-width inputs/buttons */
+  input[type="text"], input[type="date"], select, button {
+    width: 100% !important;
+  }
+
+  /* Table scroll */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Cards adjust */
+  .user-card, .analyst-card, .error-card, .access-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+  h1, h2, h3, h4 {
+    font-size: 85%;
+  }
+  .qc-navbar {
+    padding: 0 1rem;
+  }
+  .qc-title h1 {
+    font-size: 1rem;
+  }
+  .qc-profile-toggle {
+    padding: 4px 10px;
+    font-size: 0.85rem;
+  }
+}
 

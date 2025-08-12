@@ -1,56 +1,73 @@
-const cors = require("cors")({ origin: true }); // ✅ Allow all origins
+/* eslint-disable max-len */
+/* eslint-disable require-jsdoc */
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const nodemailer = require("nodemailer");
 
 admin.initializeApp();
-const db = admin.firestore();
 
-// 🔁 Toggle for Emulator vs Production
-const useTestTransport = process.env.USE_TEST_TRANSPORT === 'true';
+const GMAIL_EMAIL = functions.config().gmail?.email;
+const GMAIL_PASS = functions.config().gmail?.password;
 
-// 🛠 Email Transport Config
-const transporter = useTestTransport
-  ? nodemailer.createTransport({ streamTransport: true, newline: 'unix', buffer: true })
-  : nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: functions.config().gmail.user,
-        pass: functions.config().gmail.pass,
-      },
-    });
-
-exports.sendOtp = functions.https.onRequest((req, res) => {
-  cors(req, res, async () => {
-    const { email, otp } = req.body;
-
-    if (!email || !otp || typeof email !== 'string') {
-      return res.status(400).json({ success: false, message: "Valid email and OTP are required" });
-    }
-
-    const mailOptions = {
-      from: useTestTransport ? "test@localhost" : functions.config().gmail.user,
-      to: email,
-      subject: "🔐 Your OTP Code",
-      text: `Your OTP is ${otp}`,
-    };
-
-    try {
-      await transporter.sendMail(mailOptions);
-
-      await db.collection("otpCodes").doc(email).set({
-        otp,
-        expiresAt: Date.now() + 5 * 60 * 1000,
-      });
-
-      if (useTestTransport) {
-        console.log("Email simulated:", mailOptions);
-      }
-
-      res.status(200).json({ success: true, message: "OTP sent successfully!" });
-    } catch (error) {
-      console.error("Email error:", error);
-      res.status(500).json({ success: false, message: "Failed to send OTP" });
-    }
-  });
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: GMAIL_EMAIL,
+    pass: GMAIL_PASS,
+  },
 });
+
+async function getAnalystEmailFromUsers(analystName) {
+  const snapshot = await admin
+      .firestore()
+      .collection("users")
+      .where("name", "==", analystName)
+      .limit(1)
+      .get();
+
+  if (!snapshot.empty) {
+    return snapshot.docs[0].data().email;
+  }
+  return null;
+}
+
+exports.sendErrorNotification = functions.firestore
+    .document("reports/{reportId}")
+    .onCreate(async (snap) => {
+      try {
+        const data = snap.data();
+        if (!data) return null;
+
+        const analystName = data.analystName || "Analyst";
+        const matchName = data.matchName || "Unknown match";
+        const errorCount = Array.isArray(data.errors) ? data.errors.length : 0;
+
+        let analystEmail = data.analystEmail || null;
+
+        if (!analystEmail) {
+          analystEmail = await getAnalystEmailFromUsers(analystName);
+        }
+
+        if (!analystEmail) {
+          console.log("No email found for analyst:", analystName);
+          return null;
+        }
+
+        const mailOptions = {
+          from: GMAIL_EMAIL,
+          to: analystEmail,
+          subject: `Errors in match: ${matchName}`,
+          text:
+          `Hello ${analystName},\n\n` +
+          `You have ${errorCount} error(s) in match: ${matchName}.\n\n` +
+          `Regards,\nQC Team`,
+        };
+
+        await transporter.sendMail(mailOptions);
+        console.log("Email sent to:", analystEmail, "for match:", matchName);
+        return null;
+      } catch (err) {
+        console.error("sendErrorNotification error:", err);
+        return null;
+      }
+    });

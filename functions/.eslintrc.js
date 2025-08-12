@@ -11,6 +11,7 @@ module.exports = {
     "google",
   ],
   rules: {
+    "require-jsdoc": "off",
     "no-restricted-globals": ["error", "name", "length"],
     "prefer-arrow-callback": "error",
     "quotes": ["error", "double", {"allowTemplateLiterals": true}],
@@ -21,7 +22,9 @@ module.exports = {
       env: {
         mocha: true,
       },
-      rules: {},
+      rules: {
+        "require-jsdoc": "off",
+      },
     },
   ],
   globals: {},

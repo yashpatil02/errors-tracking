@@ -166,3 +166,79 @@ body {
     font-size: 0.8rem;
   }
 }
+
+/* ===== Mobile Responsive Enhancements ===== */
+@media (max-width: 768px) {
+  /* Generic */
+  body {
+    font-size: 14px;
+  }
+  h1, h2, h3, h4 {
+    font-size: 90%;
+  }
+  button, input, select, textarea {
+    font-size: 14px !important;
+  }
+
+  /* Sidebar collapse */
+  .sidebar {
+    position: fixed;
+    width: 180px;
+    left: -180px;
+    top: 0;
+    height: 100%;
+    z-index: 2000;
+    transition: left 0.3s ease;
+  }
+  .sidebar.open {
+    left: 0;
+  }
+
+  /* Flex/Grids stack */
+  .dashboard-layout, .report-body, .users-header, .header-row, 
+  .filters, .dashboard-actions, .analyst-details-grid, .analyst-header-right {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .dashboard-cards, .dashboard-stats {
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+  }
+
+  /* Full-width inputs/buttons */
+  input[type="text"], input[type="date"], select, button {
+    width: 100% !important;
+  }
+
+  /* Table scroll */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Cards adjust */
+  .user-card, .analyst-card, .error-card, .access-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+  h1, h2, h3, h4 {
+    font-size: 85%;
+  }
+  .qc-navbar {
+    padding: 0 1rem;
+  }
+  .qc-title h1 {
+    font-size: 1rem;
+  }
+  .qc-profile-toggle {
+    padding: 4px 10px;
+    font-size: 0.85rem;
+  }
+}
