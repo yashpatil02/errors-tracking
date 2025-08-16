@@ -119,12 +119,14 @@ if (selectedRole === "admin") {
   await setDoc(userRef, {
     uid: user.uid,
     email,
+     name,
     role: "pending-admin",
     approved: false,
     requestedRole: "admin",
-  });
+  }); 
   await addDoc(collection(db, "adminRequests"), {
     uid: user.uid,
+     name,
     email,
     requestedRole: "admin",
     requestedAt: serverTimestamp(),
@@ -133,6 +135,7 @@ if (selectedRole === "admin") {
   await setDoc(userRef, {
     uid: user.uid,
     email,
+     name,
     role: "qc-manager",
     approved: false,
   });
@@ -140,6 +143,7 @@ if (selectedRole === "admin") {
   await setDoc(userRef, {
     uid: user.uid,
     email,
+    name,
     role: "analyst",
     approved: false,
   });
