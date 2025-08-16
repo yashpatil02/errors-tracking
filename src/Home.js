@@ -180,6 +180,7 @@ const Home = ({ submittedReports, setSubmittedReports, userMeta }) => {
 
   return (
     <>
+     <div className="layout">
       <Navbar userMeta={userMeta} />
       <ToastContainer />
 
@@ -350,6 +351,7 @@ const Home = ({ submittedReports, setSubmittedReports, userMeta }) => {
           </div>
         </form>
       </main>
+      </div>
     </>
   );
 };

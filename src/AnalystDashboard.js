@@ -150,13 +150,17 @@ const AnalystDashboard = ({ userMeta }) => {
     value={searchTerm}
     onChange={(e) => setSearchTerm(e.target.value)}
   />
-  <button onClick={exportToExcel}>
-    <i className="fas fa-download"></i> Download Excel
-  </button>
-  <button onClick={handleRefresh}>
-    <i className="fas fa-sync-alt"></i> Refresh
-  </button>
+  
+  <div className="action-buttons">
+    <button onClick={exportToExcel}>
+      <i className="fas fa-download"></i> Download Excel
+    </button>
+    <button onClick={handleRefresh}>
+      <i className="fas fa-sync-alt"></i> Refresh
+    </button>
+  </div>
 </div>
+
 
 
 

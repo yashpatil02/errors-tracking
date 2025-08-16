@@ -260,39 +260,6 @@
   font-weight: 500;
 }
 
-/* 📱 Responsive */
-@media (max-width: 768px) {
-  .dashboard-container {
-    padding: 80px 1rem 2rem;
-  }
-
-  .dashboard-header h1 {
-    font-size: 1.8rem;
-  }
-
-  .dashboard-header p {
-    font-size: 0.9rem;
-  }
-
-  .dashboard-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .dashboard-actions input,
-  .dashboard-actions button {
-    width: 100%;
-  }
-
-  .analyst-details-grid {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .scroll-section {
-    max-height: 200px;
-  }
-}
 
 .action-buttons {
   display: flex;
@@ -357,13 +324,12 @@
 
   margin-left: 1rem;
 }
-.dashboard-cards {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
+  .dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
 
 .card {
   width: 200px;
@@ -433,79 +399,145 @@
   border-color: #6f42c1;
   background-color: rgba(111, 66, 193, 0.15); /* Light purple */
 }
+/* 📱 Responsive adjustments for actions & cards */
 
-/* ===== Mobile Responsive Enhancements ===== */
-@media (max-width: 768px) {
-  /* Generic */
-  body {
-    font-size: 14px;
-  }
-  h1, h2, h3, h4 {
-    font-size: 90%;
-  }
-  button, input, select, textarea {
-    font-size: 14px !important;
+/* Tablet view: up to 1024px */
+@media (max-width: 1024px) {
+  /* Dashboard actions: search on top, buttons below */
+  .dashboard-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
   }
 
-  /* Sidebar collapse */
-  .sidebar {
-    position: fixed;
-    width: 180px;
-    left: -180px;
-    top: 0;
-    height: 100%;
-    z-index: 2000;
-    transition: left 0.3s ease;
-  }
-  .sidebar.open {
-    left: 0;
+  .dashboard-actions input {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 
-  /* Flex/Grids stack */
-  .dashboard-layout, .report-body, .users-header, .header-row, 
-  .filters, .dashboard-actions, .analyst-details-grid, .analyst-header-right {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-  }
-  .dashboard-cards, .dashboard-stats {
-    grid-template-columns: 1fr !important;
-    display: grid !important;
+  .dashboard-actions button {
+    flex: 1 1 calc(50% - 0.75rem);
+    max-width: 200px;
   }
 
-  /* Full-width inputs/buttons */
-  input[type="text"], input[type="date"], select, button {
-    width: 100% !important;
+  /* Cards: 2 per row */
+  .dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    justify-items: center;
   }
 
-  /* Table scroll */
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  /* Cards adjust */
-  .user-card, .analyst-card, .error-card, .access-card {
-    flex-direction: column !important;
-    align-items: flex-start !important;
+  .dashboard-cards .card {
+    width: 100% !important; /* Remove fixed 200px */
+    max-width: 100% !important;
+    height: 100px; /* Keep height */
   }
 }
 
-@media (max-width: 480px) {
-  body {
-    font-size: 13px;
+/* Mobile view: up to 768px */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 80px 1rem 2rem;
   }
-  h1, h2, h3, h4 {
-    font-size: 85%;
+
+  .dashboard-header h1 {
+    font-size: 1.8rem;
   }
-  .qc-navbar {
-    padding: 0 1rem;
+
+  .dashboard-header p {
+    font-size: 0.9rem;
   }
-  .qc-title h1 {
-    font-size: 1rem;
+
+  .analyst-details-grid {
+    flex-direction: column;
+    gap: 1rem;
   }
-  .qc-profile-toggle {
-    padding: 4px 10px;
-    font-size: 0.85rem;
+
+  .scroll-section {
+    max-height: 200px;
+  }
+}
+
+/* Small mobile: up to 600px */
+@media (max-width: 600px) {
+   .dashboard-container {
+    padding-top: 80px !important; /* navbar ke niche aur gap */
+  }
+  /* Actions: search full width, buttons in same row */
+  .dashboard-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dashboard-actions input {
+    min-width: unset;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .dashboard-actions button {
+    width: calc(50% - 0.5rem);
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  /* Cards still 2 per row */
+  .dashboard-cards {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    justify-items: stretch !important;
+  }
+
+  .dashboard-cards .card {
+    width: 100% !important;  /* full cell width */
+    max-width: 100% !important;
+    height: auto !important; /* keep flexible height */
+  }
+
+  .action-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .action-buttons button {
+    flex: 1;
+  }
+}
+
+/* ✅ Force correct card layout on mobile */
+@media (max-width: 600px) {
+  .dashboard-cards {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    justify-items: stretch !important;
+  }
+
+  /* Override fixed width completely */
+  .dashboard-cards .card {
+    width: 100% !important; 
+    max-width: 100% !important;
+    height: 100px !important; /* Keep consistent height */
+    box-sizing: border-box;
+  }
+}
+
+/* ✅ Tablet fix (601px–1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .dashboard-cards {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    justify-items: stretch !important;
+  }
+
+  .dashboard-cards .card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100px !important;
   }
 }

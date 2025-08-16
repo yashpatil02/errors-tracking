@@ -3,6 +3,7 @@ import { db } from './firebaseConfig';
 import * as XLSX from "xlsx";
 import ReviewedErrorReports from './ReviewedErrorReports';
 import AnalystReviewPage from './AnalystReviewPage';
+import { useLayoutEffect } from "react";
 
 import {
   collection,
@@ -32,7 +33,16 @@ const AdminPanel = ({ userMeta }) => {
   const [showFilters, setShowFilters] = useState(false);
   const [filterRole, setFilterRole] = useState('');
   const [filterStatus, setFilterStatus] = useState('');
+  // const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+
+  // ✅ Detect window resize for mobile/desktop view
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
 
   const handleExport = () => {
@@ -208,21 +218,35 @@ const AdminPanel = ({ userMeta }) => {
     <>
       <Navbar userMeta={userMeta} />
       <div className="dashboard-layout">
-        <div className="sidebar">
-          <h3>📁 Menu</h3>
-          <ul>
-            <li className={activeTab === 'dashboard' ? 'active' : ''} onClick={() => setActiveTab('dashboard')}>📊 Reports</li>
-            <li className={activeTab === 'analysts' ? 'active' : ''} onClick={() => setActiveTab('analysts')}>👥 All Analysts</li>
-            <li className={activeTab === 'requests' ? 'active' : ''} onClick={() => setActiveTab('requests')}>📥 Requests</li>
-            <li
-              className={activeTab === 'errorReports' ? 'active' : ''}
-              onClick={() => setActiveTab('errorReports')}
-            >
-              🧾 Error Reports
-            </li>
-
-          </ul>
+        <div className={`sidebar ${isMobile ? 'mobile' : ''}`}>
+          {isMobile ? (
+            <div className="sidebar-scroll">
+              {['dashboard', 'analysts', 'requests', 'errorReports'].map(tab => (
+                <div
+                  key={tab}
+                  className={`tab-item ${activeTab === tab ? 'active' : ''}`}
+                  onClick={() => setActiveTab(tab)}
+                >
+                  {tab === 'dashboard' && '📊 Reports'}
+                  {tab === 'analysts' && '👥 All Analysts'}
+                  {tab === 'requests' && '📥 Requests'}
+                  {tab === 'errorReports' && '🧾 Error Reports'}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <>
+              <h3>📁 Menu</h3>
+              <ul>
+                <li className={activeTab === 'dashboard' ? 'active' : ''} onClick={() => setActiveTab('dashboard')}>📊 Reports</li>
+                <li className={activeTab === 'analysts' ? 'active' : ''} onClick={() => setActiveTab('analysts')}>👥 All Analysts</li>
+                <li className={activeTab === 'requests' ? 'active' : ''} onClick={() => setActiveTab('requests')}>📥 Requests</li>
+                <li className={activeTab === 'errorReports' ? 'active' : ''} onClick={() => setActiveTab('errorReports')}>🧾 Error Reports</li>
+              </ul>
+            </>
+          )}
         </div>
+
 
         <div className="admin-panel">
           <h2>🛡️ Admin Dashboard</h2>
@@ -337,19 +361,19 @@ const AdminPanel = ({ userMeta }) => {
                   />
                   <div>
                     <button className="export-btn" onClick={handleExport}>⬇️ Export</button>
-                    <button className="filter-btn" onClick={() => setShowFilters(!showFilters)}>⚙️ Filter</button>
+
 
                   </div>
-                  {showFilters && (
-                    <div className="filter-panel">
-                      <select value={filterRole} onChange={(e) => setFilterRole(e.target.value)}>
-                        <option value="">All Roles</option>
-                        <option value="admin">Admin</option>
-                        <option value="analyst">Analyst</option>
-                      </select>
+                  <select
+                    value={filterRole}
+                    onChange={(e) => setFilterRole(e.target.value)}
+                    className="role-dropdown"
+                  >
+                    <option value="">All Roles</option>
+                    <option value="admin">Admin</option>
+                    <option value="analyst">Analyst</option>
+                  </select>
 
-                    </div>
-                  )}
 
                 </div>
               </div>
@@ -375,22 +399,25 @@ const AdminPanel = ({ userMeta }) => {
                           </div>
                         </div>
                       </div>
-
                       <div className="user-right">
-                        <p>Reports: {reports.filter(r => r.analystName === user.name).length}</p>
-                        <p>Errors: {
-                          reports
-                            .filter(r => r.analystName === user.name)
-                            .reduce((sum, r) => sum + (r.errors?.length || 0), 0)
-                        }</p>
+                        <div className="reports-errors">
+                          <p>Reports: {reports.filter(r => r.analystName === user.name).length}</p>
+                          <p>Errors: {
+                            reports
+                              .filter(r => r.analystName === user.name)
+                              .reduce((sum, r) => sum + (r.errors?.length || 0), 0)
+                          }</p>
+                        </div>
+
                         <p className="last-login">Last login: {user.lastLogin || "N/A"}</p>
 
                         <div className="user-actions">
-                          <button title="Edit"><i className="fas fa-edit"></i> ✏️</button>
-                          <button title="View"><i className="fas fa-eye"></i> 👁️</button>
-                          <button title="Delete" onClick={() => deleteAnalyst(user)}><i className="fas fa-trash"></i> 🗑️</button>
+                          <button title="Delete" onClick={() => deleteAnalyst(user)}>
+                            <i className="fas fa-trash"></i> 🗑️
+                          </button>
                         </div>
                       </div>
+
                     </div>
                   ))}
               </div>

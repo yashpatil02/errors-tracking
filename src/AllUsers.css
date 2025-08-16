@@ -1,32 +1,5 @@
-.all-users-section {
-  margin-top: 2rem;
-}
-
-.all-users-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.actions-right .btn {
-  margin-left: 10px;
-  padding: 8px 14px;
-  border-radius: 6px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.user-search {
-  width: 100%;
-  padding: 10px 14px;
-  margin: 1rem 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-.user-list {
+/* 📱 All Analysts (Users List) Responsive */
+.users-list {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -39,16 +12,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.user-info {
+/* Avatar & user info */
+.user-left {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex: 1;
+  min-width: 200px;
 }
 
-.avatar {
+.avatar-circle {
   background: #3498db;
   color: white;
   font-weight: bold;
@@ -60,49 +37,51 @@
   justify-content: center;
 }
 
-.user-name {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.user-email {
-  font-size: 14px;
-  color: #555;
-}
-
-.badges {
-  margin-top: 5px;
-}
-
-.badge {
-  padding: 4px 8px;
-  margin-right: 6px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.role.admin { background: #e74c3c; color: white; }
-.role.analyst { background: #3498db; color: white; }
-.role.manager { background: #9b59b6; color: white; }
-
-.status.active { background: #2ecc71; color: white; }
-.status.inactive { background: #f1c40f; color: black; }
-
-.user-meta {
+/* Right side info */
+.user-right {
   text-align: right;
-  font-size: 14px;
+  min-width: 180px;
 }
 
-.last-login {
-  font-size: 12px;
-  color: #888;
+/* 📱 Mobile View Adjustments */
+@media (max-width: 768px) {
+  .user-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .user-right {
+    text-align: left;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .user-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
 }
 
-.user-actions button {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  margin-left: 10px;
+@media (max-width: 480px) {
+  .user-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .avatar-circle {
+    height: 35px;
+    width: 35px;
+    font-size: 14px;
+  }
+
+  .user-right p {
+    font-size: 13px;
+  }
+
+  .tags span {
+    font-size: 11px;
+  }
 }

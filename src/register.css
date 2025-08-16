@@ -1,3 +1,4 @@
+/* ===== Base Styles ===== */
 body {
   margin: 0;
   padding: 0;
@@ -9,7 +10,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 1rem;
 }
 
 .register-card {
@@ -17,7 +19,7 @@ body {
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 0 30px rgba(0,0,0,0.1);
-  max-width: 400px;
+  max-width: 420px;
   width: 100%;
   text-align: center;
 }
@@ -27,89 +29,154 @@ body {
   color: #57b8d6;
 }
 
+/* ===== Input Group ===== */
 .input-group {
-  position: relative;
   margin-bottom: 1rem;
+  text-align: left;
 }
 
-.input-group input {
-  width: 80%;
-  padding: 0.9rem 1rem;
-  padding-right: 2.5rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  background-color: white;
-}
+.input-group input,
 .input-group select {
-  width: 95%;
+  width: 100%;
   padding: 0.9rem 1rem;
   padding-right: 2.5rem;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 1rem;
   background-color: white;
+  box-sizing: border-box;
 }
+
+/* ===== Input + Icon Wrapper ===== */
+.input-with-icon {
+  position: relative;
+  width: 100%;
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  padding-right: 2.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: white;
+  box-sizing: border-box;
+}
+
 
 .toggle-pass {
   position: absolute;
-  right: 20px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   background: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #555;
   cursor: pointer;
+  z-index: 2;
+  padding: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .toggle-pass:hover {
   color: #57b8d6;
 }
 
-.register-btn {
-  width: 100%;
-  padding: 1rem;
-  background: #57b8d6;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s ease;
+/* ===== Validation Feedback ===== */
+.error-text {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 4px;
 }
 
-.register-btn:hover {
-  background: #489cb9;
+.success-text {
+  color: green;
+  font-size: 0.85rem;
+  margin-top: 4px;
 }
 
-.redirect-note {
-  margin-top: 1rem;
-  font-size: 0.9rem;
+input.valid {
+  border: 2px solid green;
 }
 
-.redirect-note a {
-  color: #57b8d6;
-  text-decoration: none;
+input.invalid {
+  border: 2px solid red;
 }
 
-
-.google-btn {
+/* ===== Password Feedback ===== */
+.password-feedback {
   margin-top: 10px;
-  background-color: #4285F4;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  width: 100%;
-  cursor: pointer;
-  transition: background 0.2s ease;
+  font-size: 0.9rem;
+  text-align: left;
 }
 
-.google-btn:hover {
-  background-color: #3367d6;
+.strength-label {
+  font-weight: bold;
+  margin-bottom: 4px;
 }
+
+.strength-label.weak {
+  color: red;
+}
+.strength-label.medium {
+  color: orange;
+}
+.strength-label.strong {
+  color: green;
+}
+
+.strength-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+.bar-fill.weak {
+  width: 30%;
+  background-color: red;
+}
+.bar-fill.medium {
+  width: 60%;
+  background-color: orange;
+}
+.bar-fill.strong {
+  width: 100%;
+  background-color: green;
+}
+
+.strength-desc {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.password-checklist {
+  list-style: none;
+  padding-left: 0;
+}
+.password-checklist li {
+  margin-bottom: 4px;
+}
+.password-checklist li.valid {
+  color: green;
+}
+.password-checklist li.invalid {
+  color: red;
+}
+
+/* ===== Google Sign-in Row ===== */
 .google-signin-row {
   display: flex;
   align-items: center;
@@ -141,104 +208,89 @@ body {
   transform: scale(1.2) rotate(8deg);
 }
 
-@media (max-width: 480px) {
+/* ===== Button Styles ===== */
+.register-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #57b8d6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.register-btn:hover {
+  background: #489cb9;
+}
+
+.redirect-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.redirect-note a {
+  color: #57b8d6;
+  text-decoration: none;
+}
+
+/* ===== Responsive Media Queries ===== */
+@media (max-width: 768px) {
   .register-card {
-    padding: 1.2rem;
-    width: 90%;
+    padding: 1.5rem;
+    width: 100%;
   }
 
   .input-group input,
   .input-group select {
-    width: 100%;
+    font-size: 0.95rem;
   }
 
   .toggle-pass {
-    right: 10px;
+    right: -120px;
   }
 
-  .register-btn,
-  .google-btn {
+  .register-btn {
     font-size: 0.95rem;
     padding: 0.85rem;
+  }
+
+  .google-signin-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .icon-only-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .strength-desc,
+  .password-checklist li {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-card h2 {
+    font-size: 1.2rem;
   }
 
   .redirect-note {
     font-size: 0.8rem;
   }
-}
 
-/* ===== Mobile Responsive Enhancements ===== */
-@media (max-width: 768px) {
-  /* Generic */
-  body {
-    font-size: 14px;
-  }
-  h1, h2, h3, h4 {
-    font-size: 90%;
-  }
-  button, input, select, textarea {
-    font-size: 14px !important;
+  .signin-label {
+    font-size: 0.9rem;
   }
 
-  /* Sidebar collapse */
-  .sidebar {
-    position: fixed;
-    width: 180px;
-    left: -180px;
-    top: 0;
-    height: 100%;
-    z-index: 2000;
-    transition: left 0.3s ease;
-  }
-  .sidebar.open {
-    left: 0;
-  }
-
-  /* Flex/Grids stack */
-  .dashboard-layout, .report-body, .users-header, .header-row, 
-  .filters, .dashboard-actions, .analyst-details-grid, .analyst-header-right {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-  }
-  .dashboard-cards, .dashboard-stats {
-    grid-template-columns: 1fr !important;
-    display: grid !important;
-  }
-
-  /* Full-width inputs/buttons */
-  input[type="text"], input[type="date"], select, button {
-    width: 100% !important;
-  }
-
-  /* Table scroll */
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  /* Cards adjust */
-  .user-card, .analyst-card, .error-card, .access-card {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 13px;
-  }
-  h1, h2, h3, h4 {
-    font-size: 85%;
-  }
-  .qc-navbar {
-    padding: 0 1rem;
-  }
-  .qc-title h1 {
-    font-size: 1rem;
-  }
-  .qc-profile-toggle {
-    padding: 4px 10px;
+  .password-feedback {
     font-size: 0.85rem;
+  }
+   .toggle-pass {
+    font-size: 1.2rem;
+       right: -120px;
+
   }
 }
