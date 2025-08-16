@@ -115,28 +115,36 @@ function Register() {
       const user = userCredential.user;
       const userRef = doc(db, "users", user.uid);
 
-      if (selectedRole === "admin") {
-        await setDoc(userRef, {
-          uid: user.uid,
-          email,
-          role: "pending-admin",
-          approved: false,
-          requestedRole: "admin",
-        });
-        await addDoc(collection(db, "adminRequests"), {
-          uid: user.uid,
-          email,
-          requestedRole: "admin",
-          requestedAt: serverTimestamp(),
-        });
-      } else {
-        await setDoc(userRef, {
-          uid: user.uid,
-          email,
-          role: "analyst",
-          approved: false,
-        });
-      }
+if (selectedRole === "admin") {
+  await setDoc(userRef, {
+    uid: user.uid,
+    email,
+    role: "pending-admin",
+    approved: false,
+    requestedRole: "admin",
+  });
+  await addDoc(collection(db, "adminRequests"), {
+    uid: user.uid,
+    email,
+    requestedRole: "admin",
+    requestedAt: serverTimestamp(),
+  });
+} else if (selectedRole === "qc-manager") {
+  await setDoc(userRef, {
+    uid: user.uid,
+    email,
+    role: "qc-manager",
+    approved: false,
+  });
+} else if (selectedRole === "analyst") {
+  await setDoc(userRef, {
+    uid: user.uid,
+    email,
+    role: "analyst",
+    approved: false,
+  });
+}
+
 
       Swal.fire("Welcome 🎉", "You’re successfully registered!", "success");
     } catch (err) {
@@ -186,23 +194,23 @@ function Register() {
         </div>
 
         <div className="input-group">
-         <div className="input-group input-flex">
-  <input
-    type={showPass ? "text" : "password"}
-    value={password}
-    placeholder="🔐 Enter your password"
-    onChange={handlePasswordChange}
-    required
-    className={passwordStrength === "weak" ? "invalid" : passwordStrength === "strong" ? "valid" : ""}
-  />
-  <button
-    type="button"
-    className="toggle-pass"
-    onClick={() => setShowPass(!showPass)}
-  >
-    {showPass ? <FaEyeSlash /> : <FaEye />}
-  </button>
-</div>
+          <div className="input-group input-flex">
+            <input
+              type={showPass ? "text" : "password"}
+              value={password}
+              placeholder="🔐 Enter your password"
+              onChange={handlePasswordChange}
+              required
+              className={passwordStrength === "weak" ? "invalid" : passwordStrength === "strong" ? "valid" : ""}
+            />
+            <button
+              type="button"
+              className="toggle-pass"
+              onClick={() => setShowPass(!showPass)}
+            >
+              {showPass ? <FaEyeSlash /> : <FaEye />}
+            </button>
+          </div>
 
 
           {password && (
@@ -229,17 +237,18 @@ function Register() {
           )}
         </div>
 
+<div className="input-group">
+  <select
+    value={selectedRole}
+    onChange={(e) => setSelectedRole(e.target.value)}
+    required
+  >
+    <option value="analyst">📊 Analyst</option>
+    <option value="qc-manager">📌 QC Manager</option> {/* 👈 Add this */}
+    <option value="admin">🛡️ Admin</option>
+  </select>
+</div>
 
-        <div className="input-group">
-          <select
-            value={selectedRole}
-            onChange={(e) => setSelectedRole(e.target.value)}
-            required
-          >
-            <option value="analyst">📊 Analyst</option>
-            <option value="admin">🛡️ Admin</option>
-          </select>
-        </div>
 
         <button type="submit" className="register-btn" disabled={loading}>
           🚀 Create Account
